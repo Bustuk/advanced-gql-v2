@@ -1,4 +1,4 @@
-const {ApolloServer, PubSub} = require('apollo-server')
+const {ApolloServer, AuthenticationError} = require('apollo-server')
 const typeDefs = require('./typedefs')
 const resolvers = require('./resolvers')
 const {createToken, getUserFromToken} = require('./auth')
@@ -21,7 +21,7 @@ const server = new ApolloServer({
       const token = connectionParams.authorization
       const user = getUserFromToken(token)
       if (!user) {
-        throw new Error('subscription connection failed')
+        throw new AuthenticationError('subscription connection failed')
       }
       return { user }
     }

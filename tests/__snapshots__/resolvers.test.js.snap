@@ -1,0 +1,13 @@
+// Jest Snapshot v1, https://goo.gl/fbAQLP
+
+exports[`resolvers feed 1`] = `
+Array [
+  Object {
+    "createdAt": 12345839,
+    "id": 1,
+    "likes": 20,
+    "message": "hello",
+    "views": 300,
+  },
+]
+`;
