@@ -17,6 +17,24 @@
       "avatar": "http",
       "createdAt": 1670577519719,
       "id": "B9N51VxWJ94cXdaHVRTrT"
+    },
+    {
+      "email": "master@code.com",
+      "password": "password",
+      "role": "ADMIN",
+      "verified": false,
+      "avatar": "http",
+      "createdAt": 1670584185119,
+      "id": "XEwnpyMcl3e_TAaOro_zs"
+    },
+    {
+      "email": "mast2ers@code.com",
+      "password": "password",
+      "role": "ADMIN",
+      "verified": false,
+      "avatar": "http",
+      "createdAt": 1670584354380,
+      "id": "p5wvvq1xDGxVG1uVOgE4C"
     }
   ],
   "posts": [

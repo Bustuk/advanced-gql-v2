@@ -21,7 +21,7 @@ const server = new ApolloServer({
       const token = connectionParams.authorization
       const user = getUserFromToken(token)
       if (!user) {
-        throw new Error('nope')
+        throw new Error('subscription connection failed')
       }
       return { user }
     }

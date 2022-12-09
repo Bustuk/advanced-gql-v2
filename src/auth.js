@@ -1,7 +1,7 @@
 const jwt = require('jsonwebtoken')
 const {models} = require('./db')
 const secret = 'catpack'
-
+const { AuthenticationError } = require('apollo-server')
 /**
  * takes a user object and creates  jwt out of it
  * using user.id and user.role
@@ -32,7 +32,7 @@ const getUserFromToken = token => {
  */
 const authenticated = next => (root, args, context, info) => {
   if (!context.user) {
-    throw new Error('You must be logged in to do this')
+    throw new AuthenticationError('You must be logged in to do this')
   }
   return next(root, args, context, info)
 }
@@ -45,7 +45,7 @@ const authenticated = next => (root, args, context, info) => {
  */
 const authorized = (role, next) => (root, args, context, info) => {
   if (context.user.role !== role) {
-    throw new Error('You are not authorized to do this')
+    throw new AuthenticationError('You are not authorized to do this')
   }
   return next(root, args, context, info)
 }
