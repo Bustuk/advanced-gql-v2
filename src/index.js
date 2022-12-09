@@ -1,4 +1,4 @@
-const {ApolloServer} = require('apollo-server')
+const {ApolloServer, PubSub} = require('apollo-server')
 const typeDefs = require('./typedefs')
 const resolvers = require('./resolvers')
 const {createToken, getUserFromToken} = require('./auth')
@@ -7,10 +7,24 @@ const db = require('./db')
 const server = new ApolloServer({
   typeDefs,
   resolvers,
-  context({req}) {
+  context({req, connection}) {
+    const context = {...db}
+    if (connection) {
+      return {...context, ...connection.context}
+    }
     const token = req.headers.authorization
     const user = getUserFromToken(token)
-    return {...db, user, createToken}
+    return {...context, user, createToken}
+  },
+  subscriptions: {
+    onConnect: (connectionParams, webSocket) => {
+      const token = connectionParams.authorization
+      const user = getUserFromToken(token)
+      if (!user) {
+        throw new Error('nope')
+      }
+      return { user }
+    }
   }
 })
 

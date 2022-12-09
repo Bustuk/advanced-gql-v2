@@ -8,8 +8,24 @@
       "avatar": "http",
       "createdAt": 1571213104370,
       "id": "Z2hlvDmLOSRZGebC_Z_aA"
+    },
+    {
+      "email": "masters@code.com",
+      "password": "password",
+      "role": "ADMIN",
+      "verified": false,
+      "avatar": "http",
+      "createdAt": 1670577519719,
+      "id": "B9N51VxWJ94cXdaHVRTrT"
     }
   ],
-  "posts": [],
+  "posts": [
+    {
+      "message": "Hello There",
+      "author": "B9N51VxWJ94cXdaHVRTrT",
+      "createdAt": 1670582988217,
+      "id": "kQU-_kREqzxT_HETJrh4u"
+    }
+  ],
   "settings": []
 }
